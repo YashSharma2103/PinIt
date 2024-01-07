@@ -2,7 +2,7 @@ import React from 'react';
 import { GoogleOAuthProvider,GoogleLogin } from '@react-oauth/google';
 import { useNavigate } from 'react-router-dom';
 import shareVideo from '../assets/share.mp4';
-import logo from '../assets/logowhite.png'
+import pinItlogo from '../assets/pinItlogo.svg';
 import { jwtDecode } from 'jwt-decode';
 import { client } from '../client';
 
@@ -25,7 +25,7 @@ const Login = () => {
         <div className='absolute flex flex-col left-0 bottom-0 top-0 right-0 justify-center items-center bg-blackOverlay'>
           <div className='p-5'>
             <img
-              src={logo}
+              src={pinItlogo}
               width='130px'
               alt='logo'
             />
@@ -38,7 +38,7 @@ const Login = () => {
                   const decoded=jwtDecode(credentialResponse.credential)
                   localStorage.setItem('user',JSON.stringify(decoded));
                   const {name,sub,picture}=decoded;
-
+                  
                   const doc={
                     _id:sub,
                     _type:'user',
